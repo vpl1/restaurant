@@ -1,0 +1,166 @@
+.container .panel-default #filterblock .filter-container .text{
+  float: left;
+}
+.container .panel-default #filterblock .filter-container .textname{
+  float: left;
+  margin-left: 5px;
+}
+.container .panel-default #filterblock .filter-container .lSymbol{
+  color: red;
+  float: left;
+  margin-left: 10px;
+}
+.container .panel-default #filterblock .filter-container .sTextBox{
+width: 40%;
+}
+
+.container .panel-default #filterblock .filter-container .phone{
+  width: 200px;
+}
+.container .panel-default #filterblock .filter-container .input{
+  width: 100%;
+}
+#field{
+  width: 200px;
+}
+#checkbox{
+  vertical-align: middle;
+}
+.checkbox_free{
+  margin-top: 5px;
+}
+.freeText{
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.tbCheckbox{
+  width: 20px;
+  float: left;
+  margin-top: 5px;
+}
+.table td .tbText{
+  margin-top: 6px;
+  width: 22%;
+  padding-left: 0px;
+}
+.Texttb{
+  text-align: center;
+}
+
+.table tr  .th1{
+  width: 30%;
+}
+.table tr  .th2{
+  width: 70%;
+}
+.svButton{
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-bottom: 31px;
+  margin-right: 84px;
+}
+.pnl .table .lbText{
+  margin-top: 5px;
+  width: 12.6666%;
+}
+
+.pnl .table .formSearch{
+  width: 45%;
+  float: left;
+}
+.pnl .table .TextSearch{
+  margin-top: 5px;
+  width: 10%;
+  padding-left: 0px;
+}
+.pnl .table .tdSearch{
+  padding-top: 20px;
+}
+.table >tbody>tr>td{
+  vertical-align: middle;
+}
+.prForm{
+  vertical-align: middle;
+}
+.form-group .submit .btnForm{
+  float: left;
+}
+.form-group .submit .btnCancel{
+  margin-left: 10px;
+}
+.form-group .submit .btnList{
+  float: left;
+}
+.form-group .submit .btnShip{
+  float: left;
+}
+.control-label .text{
+  margin-left: 5px;
+}
+.form-group #stt{
+ vertical-align: middle;
+ margin-bottom: 1px;
+}
+.form-group .action{
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.form-group .ckBox{
+  margin-top: 5px;
+}
+.formSearch .submit  .freeButton{
+  float: left;
+  width: 122px;
+}
+.container .panel-default #filterblock .filter-container .rSymbol{
+  color: red;
+  float: left;
+}
+.btnFilter{
+  margin-left: 15.666667%;
+  width: 13%;
+}
+.btnCancel{
+  margin-left: 0px;
+}
+.storename{
+  width: 40%;
+}
+.sTBox{
+  width: 100%;
+}
+.mainBox{
+  width: 40%;
+}
+.btnbutton{
+  margin-left: 2px;
+}
+.table>thead>tr .status{
+  width: 104px;
+}
+.pnl #filterblock .filter-container #filter-form .form-group .oTextBox{
+  width: 220px;
+}
+.form-horizontal .form-group label{
+  float: left;
+}
+
+.formSave{
+  margin-left: 31px;
+}
+.stForm{
+  margin-left: 6%;
+}
+.storeform{
+  width: 40%;
+}
+.optionBox{
+  width: 23%;
+}
+.btnform{
+  margin-left: 14px;
+}
+.form-horizontal  .form-group .btnUpdate{
+  margin-left: 19.99%;
+}

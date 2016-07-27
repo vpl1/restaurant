@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+
+msgid "Users"
+msgstr "Tài khoản"
+
+msgid "Dashboard"
+msgstr "Trang quản trị hệ thống"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "English"
+msgstr "English"
+
+msgid "Manage Users"
+msgstr "Quản lý tài khoản"
+
+msgid "Edit Menu"
+msgstr "Chỉnh sửa danh mục"

@@ -1,0 +1,104 @@
+.categoryManager .categoryBlock:last-child{
+    border-top: none;
+}
+.categoryBlock {
+    /*padding: 20px;
+    border: 1px solid #ddd;*/
+}
+.controls .button {
+    width: 100px;
+}
+ul,li {
+    list-style-type: none;
+}
+.treeNode, .treeNodeCt {
+    padding-left: 0;
+}
+.treeMinus {
+    background: url('../img/menus/elbow-minus.gif') no-repeat;
+    cursor: pointer;
+}
+.treeEndMinus {
+    background: url('../img/menus/elbow-end-minus.gif') no-repeat;
+    cursor: pointer;
+}
+.treePlus {
+    background: url('../img/menus/elbow-plus.gif') no-repeat;
+    cursor: pointer;
+}
+.treeEndPlus {
+    background: url('../img/menus/elbow-end-plus.gif') no-repeat;
+    cursor: pointer;
+}
+.treeElBow {
+    background: url('../img/menus/elbow.gif') no-repeat;
+}
+.treeElBowEnd {
+    background: url('../img/menus/elbow-end.gif') no-repeat;
+}
+.treeElBowLine {
+    background: url('../img/menus/elbow-line.gif') no-repeat;
+}
+.treeIcon {
+    border: 0 none;
+    height: 18px;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 16px;
+}
+.table {
+    display: table;
+    width: 100%;
+    border-spacing: inherit;
+}
+.table td ,.table th{
+    padding: 10px 20px;
+}
+.input {
+    box-sizing: border-box;
+}
+em {
+    color: #ff0000;
+}
+/*news list*/
+.tableBorder {
+    border: 1px solid #ddd;
+}
+.table.border td,
+.table.border th {
+    border: 1px solid #ddd;
+}
+.borderBottom {
+    border-bottom: 1px solid #ddd;
+}
+.bgGray {
+    background-color: #777;
+}
+.categoryBlock .table>thead>tr>th, 
+.categoryBlock .table>tbody>tr>th, 
+.categoryBlock .table>tfoot>tr>th, 
+.categoryBlock .table>thead>tr>td, 
+.categoryBlock .table>tbody>tr>td,
+.categoryBlock .table>tfoot>tr>td {
+    border: none;
+}
+.clWhite {
+    color: #fff;
+}
+#pagination-clean {
+    text-align: center;
+}
+#pagination-clean .previous-off, #pagination-clean .next-off {
+    float: none;
+}
+#pagination-clean .active {
+    float: none;
+    display: inline-block;
+}
+#pagination-clean li, #pagination-clean a {
+    display: inline-block;
+}
+#pagination-clean a:link, #pagination-clean a:visited {
+    float: none;
+}

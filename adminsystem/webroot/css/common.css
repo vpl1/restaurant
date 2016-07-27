@@ -1,0 +1,502 @@
+body {
+  min-height: 500px;
+}
+
+.main-container {
+  min-height: 700px;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+.navbar-right .btn {
+	padding: 10px 15px;
+	margin-top: 4px;
+	margin-right: 15px;
+}
+
+.navbar-nav {
+	margin-left: 10px;
+}
+
+.navbar-right {
+  margin-left: 0px;
+}
+
+.table {
+	margin-bottom: 5px;
+}
+
+.table thead th {
+	background-color: #2D692D;
+	color: #fff;
+}
+
+.table tbody tr:hover {
+	background-color: #eee;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+	padding: 5px 10px;
+}
+
+.form-group .checkbox {
+	display: inline-block;
+	min-width: 150px;
+}
+
+.form-group {
+	margin-bottom: 10px;
+}
+/* ***** autocomplete ***** */
+
+.autocomplete-suggestions {
+  border: 1px solid #e4e4e4;
+  background: #F4F4F4;
+  cursor: default;
+  overflow: auto;
+}
+.autocomplete-suggestion {
+  padding: 2px 5px;
+  font-size: 1.2em;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.autocomplete-selected {
+  background: #f0f0f0;
+}
+.autocomplete-suggestions strong {
+  font-weight: normal;
+  color: #3399ff;
+  font-weight: bolder;
+}
+/* ***** /autocomplete *****/
+
+.form-list { margin: 0px; padding: 0px;}
+.form-list li { list-style: none; margin-bottom: 10px; }
+.form-list li > label { display: inline-block; width: 190px; }
+.form-list .input-box { display: inline-block; }
+.form-list .fields {}
+.form-list .field { display: inline-block; }
+.form-list .control .input-box label { display: inline-block; font-weight: normal; min-width: 140px; }
+.form-list .control .input-box input[type=checkbox] { display: inline-block; }
+.form-list {}
+
+.daterangepicker.dropdown-menu {
+  font-size: 13px;
+  padding: 0;
+  overflow: hidden;
+}
+.daterangepicker.picker_1 {
+  background: #34495E;
+  color: #ECF0F1;
+}
+.daterangepicker.picker_1 table.table-condensed thead tr:first-child {
+  background: #1ABB9C;
+}
+.daterangepicker table.table-condensed thead tr:first-child th {
+  line-height: 28px;
+  text-align: center;
+}
+.daterangepicker.picker_1 table.table-condensed thead tr {
+  background: #213345;
+}
+.daterangepicker table.table-condensed thead tr {
+  line-height: 14px;
+}
+.daterangepicker table.table-condensed tbody tr:first-child td {
+  padding-top: 10px;
+}
+.daterangepicker table.table-condensed th:first-child, .daterangepicker table.table-condensed td:first-child {
+  padding-left: 12px
+}
+.daterangepicker table.table-condensed th:last-child, .daterangepicker table.table-condensed td:last-child {
+  padding-right: 12px
+}
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td {
+  padding: 5px 7px;
+  text-align: center;
+}
+.daterangepicker table.table-condensed tbody tr:last-child td {
+  padding-bottom: 10px;
+}
+.daterangepicker.picker_2 table.table-condensed thead tr:first-child {
+  color: inherit;
+}
+.daterangepicker.picker_2 table.table-condensed thead tr {
+  color: #1ABB9C;
+}
+.daterangepicker.picker_3 table.table-condensed thead tr:first-child {
+  background: #1ABB9C;
+  color: #ECF0F1;
+}
+.daterangepicker.picker_4 table.table-condensed tbody td {
+  background: #ECF0F1;
+  color: #34495E;
+  border: 1px solid #fff;
+  padding: 4px 7px;
+}
+.daterangepicker.picker_4 table.table-condensed tbody td.active {
+  background: #536A7F;
+  color: #fff;
+}
+.daterangepicker.picker_4 table.table-condensed thead tr:first-child {
+  background: #34495E;
+  color: #ECF0F1;
+}
+.xdisplay_input {
+  width: 240px;
+  overflow: hidden;
+  padding: 0;
+}
+.xdisplay {
+  background-color: #fff;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 4px;
+  width: 230px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+.daterangepicker.opensright .ranges, .daterangepicker.opensright .calendar, .daterangepicker.openscenter .ranges, .daterangepicker.openscenter .calendar {
+  float: right;
+}
+.daterangepicker.dropdown-menu .calendar {}
+.daterangepicker table {
+  width: 100%;
+  margin: 0;
+}
+.daterangepicker td, .daterangepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.daterangepicker td.off {
+  color: #999;
+}
+.daterangepicker td.disabled {
+  color: #999;
+}
+.daterangepicker td.available:hover, .daterangepicker th.available:hover {
+  background: #eee;
+  color: #34495E;
+}
+.daterangepicker td.in-range {
+  background: #E4E7EA;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+.daterangepicker td.available + td.start-date {
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+.daterangepicker td.in-range + td.end-date {
+  -webkit-border-radius: 0 4px 4px 0;
+  -moz-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+.daterangepicker td.start-date.end-date {
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  border-radius: 4px !important;
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+  background-color: #536A7F;
+  color: #fff;
+}
+.daterangepicker td.week, .daterangepicker th.week {
+  font-size: 80%;
+  color: #ccc;
+}
+.daterangepicker select.monthselect, .daterangepicker select.yearselect {
+  font-size: 12px;
+  padding: 1px;
+  height: auto;
+  margin: 0;
+  cursor: default;
+  height: 30px;
+  border: 1px solid #ADB2B5;
+  line-height: 30px;
+  border-radius: 0px !important;
+}
+.daterangepicker select.monthselect {
+  margin-right: 2%;
+  width: 56%;
+}
+.daterangepicker select.yearselect {
+  width: 40%;
+}
+.daterangepicker select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.ampmselect {
+  width: 50px;
+  margin-bottom: 0;
+}
+.daterangepicker_start_input {
+  float: left;
+}
+.daterangepicker_end_input {
+  float: left;
+  padding-left: 11px;
+}
+.daterangepicker th.month {
+  width: auto;
+}
+.daterangepicker .daterangepicker_start_input label, .daterangepicker .daterangepicker_end_input label {
+  color: #333;
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 2px;
+  text-shadow: #fff 1px 1px 0px;
+  text-transform: uppercase;
+  width: 74px;
+}
+.daterangepicker .ranges input {
+  font-size: 11px;
+}
+.daterangepicker .ranges .input-mini {
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+  display: block;
+  font-size: 11px;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+  margin: 0 0 10px 0;
+  padding: 0 6px;
+  width: 74px;
+}
+.daterangepicker .ranges .input-mini:hover {
+  cursor: pointer;
+}
+.daterangepicker .ranges ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.daterangepicker .ranges li {
+  font-size: 13px;
+  background: #f5f5f5;
+  border: 1px solid #f5f5f5;
+  color: #536A7F;
+  padding: 3px 12px;
+  margin-bottom: 8px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.daterangepicker .ranges li.active, .daterangepicker .ranges li:hover {
+  background: #536A7F;
+  border: 1px solid #536A7F;
+  color: #fff;
+}
+.daterangepicker .calendar {
+  display: none;
+  max-width: 270px;
+}
+.daterangepicker.show-calendar .calendar {
+  display: block;
+}
+.daterangepicker .calendar.single .calendar-date {
+  border: none;
+}
+.daterangepicker.single .ranges, .daterangepicker.single .calendar {
+  float: none;
+}
+.daterangepicker .ranges {
+  width: 160px;
+  text-align: left;
+  margin: 4px;
+}
+.daterangepicker .ranges .range_inputs>div {
+  float: left;
+}
+.daterangepicker .ranges .range_inputs>div:nth-child(2) {
+  padding-left: 11px;
+}
+.daterangepicker.opensleft .ranges, .daterangepicker.opensleft .calendar {
+  float: left;
+  margin: 4px;
+}
+
+.mr10 { margin-right: 10px; }
+
+.order-cancel {
+	color: red;
+}
+
+.dataTables_info {
+  width: 60%;
+  float: left;
+  margin: 20px 0px;
+}
+.dataTables_paginate {
+  float: right;
+  text-align: right;
+}
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+	color: #fff;
+    background-color: #5CB85C;
+}
+
+.pnl { padding: 10px; }
+.pnl .pnl-head { 
+  border-bottom: 2px solid #E6E9ED;
+  padding: 1px 5px 1px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.pnl .pnl-title {
+  margin: 5px 0 6px;  
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: bold;
+}
+.pnl .pnl-head .fa {
+  font: normal normal normal 14px/1 FontAwesome;
+  color: #B7B6B6;
+  float: right;
+}
+
+.footer {
+  border-top: 1px solid #CACACA;
+  text-align: center;
+  font-size: 12px;
+  color: #989898;
+  padding: 5px 0px 10px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.pagination>li>a, .pagination>li>span {
+  color: #989898;
+}
+
+#datatable_filter {
+  display: none;
+}
+
+.page-title {
+  border-bottom: 2px solid #E6E9ED;
+  padding: 0px 0px 5px;
+  margin-bottom: 10px;
+}
+
+.page-title h2 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.message {  
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+
+div.dataTables_wrapper div.dataTables_processing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  margin-top: -26px;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.button-action {
+  text-align: right;
+  margin-bottom: -30px;
+  padding-right: 2px;  
+}
+.clear {
+    clear: both;
+}
+/*Order Module*/
+.moneyDetail{
+  float: right;
+}
+.moneyDetail ul li label {
+    float: left;
+    width: 230px;
+    font-weight: normal;
+    margin-bottom: 0px;
+}
+.moneyDetail ul li span{
+  margin-bottom: 5px;
+}
+.infor_user ul{
+  padding: 0px;
+}
+.moneyDetail ul li{
+  list-style: none;
+}
+.infor_user ul li{
+  list-style: none;
+}
+.infor_user ul li label{
+  font-weight: normal;
+}
+.billingInfo{
+  float: left;
+}
+.shippingInfo{
+  float: left;
+  margin-left: 100px;
+}
+.infor_user .title h2 {
+    border-bottom: 1px solid #ddd;
+    color: #4ba046;
+    font-size: 14px;
+    margin: 15px 0;
+    padding-bottom: 12px;
+}
+/*End Order Module*/
+/*List Acount*/
+#datatable{
+  width: 100% !important;
+}
+#datatable table tr td.last{
+  text-align: center;
+}
+/**./List Acount*/

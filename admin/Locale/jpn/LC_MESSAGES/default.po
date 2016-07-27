@@ -1,0 +1,23 @@
+msgid ""
+msgstr ""
+
+msgid "Users"
+msgstr "ユーザー"
+
+msgid "Dashboard"
+msgstr "ダッシュボード"
+
+msgid "Vietnamese"
+msgstr "Tiếng Việt"
+
+msgid "Japanese"
+msgstr "日本語"
+
+msgid "English"
+msgstr "English"
+
+msgid "Manage Users"
+msgstr "ユーザーの管理"
+
+msgid "Edit Menu"
+msgstr "編集メニュー"
