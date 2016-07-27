@@ -1,8 +1,5 @@
 <?php
 App::uses('AppController', 'Controller');
-App::import('Model','Food');
-App::import('Model','User');
-App::import('Model','Restaurant');
 class RequestsController extends AppController {
 
 	    public $uses = array('Menu');
@@ -12,72 +9,60 @@ class RequestsController extends AppController {
 	        $data = json_encode($data);
 	        echo $data;
 	    }
-	    public function index(){}
-	   	// Start vpluan
-	   	/*
-	   	* function getListFavorites 
-	   	* return list favorites food format json or error by two get_pramaster: UserID and           * RestaurantId
-	   	*/
-	    public function getListFavorites()
-	    {
-			if(isset($_GET)) {
-			    $restaurantId = $this->request->query["restaurantId"];
-			    $userId = $this->request->query["userId"];
+	    /*
+	    *	Function beforeFilter begin when call Controller
+	    *	Useful: Import Model
+	    */
+	    public function beforeFilter(){
+	    	$this->LoadModel("User");
+	        $this->LoadModel("Restaurant");
+	        $this->LoadModel("Food");
+	        $this->LoadModel("FoodReview");
+	    }
 
-			    if(strlen($restaurantId) >= 0 && strlen($userId) >= 0) {
-			    	if($this->isExistUserAndRestaurant($userId,$restaurantId)){
-			    		$food = new Food();
-			    		$getdata = $food->getFoodFavorites($userId,$restaurantId);
-			    		$data2json  = '{
-			  						"error": {
-			    					"code": 0,
-			    					"message": "Connect successfully"
-			  						},
-			  						"listFoods":'.json_encode($getdata).'}';
-			    	}
-			    	else{
-			    		$data2json 	='{
-								"error": {
-								"code": 1,
-								"message": "Error"
-								}}';
+	    // Start vpLuan
+	    public function index(){
 
-			    	}
-				}else{
-					$data2json 	='{
-								"error": {
-								"code": 1,
-								"message": "Error"
-								}}';
+	    }
+	    public function getListFavorites(){
+	    	$restaurantId = $this->request->query["restaurantId"];
+			$userId = $this->request->query["userId"];
+			//$restaurantId = 1;
+			//$userId = 1;
+ 			if(!empty(trim(((string)$restaurantId))) && !empty(trim((string)$userId))){
+				$queryResult = $this->Food->getFoodFavorites($userId,$restaurantId);
+				//pr($queryResult); exit();
+				if($queryResult != null){
+					foreach ($queryResult as $key => $value) {
+						$listFoods[] = array(
+							'id'=> $value['Food']['id'],
+						    'imageUrl' => $value['Food']['image_url'],
+						    'rateString' => $this->FoodReview->getRateString($value['Food']['id']),
+						    'name'=> $value['Food']['name'],
+						    'price' => $value['Food']['price'],
+						    'sale' => $value['Food']['sale'],
+						    'discount' => $value['Food']['discount'],
+						    'type' => $value['Food']['type']
+						);
+					}
+					$result = array("error"=>array('code'=>0,'message'=>'Connect successfully'), "listFoods"=>$listFoods);
+                	echo json_encode($result);
+				}
+				else{
+					$result = array("error"=>array('code'=>0,'message'=>'Connect successfully'), "listFoods"=>null);
+            		echo json_encode($result);
 				}
 			}
 			else{
-				$data2json 	= '{
-								"error": {
-								"code": 1,
-								"message": "Error"
-								}}';
+				$result = array("error"=>array('code'=>404,'message'=>'Connect failed'), "listFoods"=>null);
+            	echo json_encode($result); 
 			}
-			$this->set("data",$data2json);
 	    }
 
-	    /*
-	   	* function isExistUserAndRestaurant
-	   	* return true: if User and Restaurant is exits else return false;
-	   	* 
-	   	*/
-	    public function isExistUserAndRestaurant($userId,$restaurantId)
+	    public function getDeliveryProcess($restaurantId)
 	    {
-	
-			$res = new Restaurant();
-			$user = new User();
-			if(($user->read(null, $userId) != null) && ($res->read(null,$restaurantId)!= null)){
-				return true;
-			}
-			else {
-				return false;
-			}
+	    	
 	    }
-	    //end vpluan
+	    //End vpLuan
 	}
 ?>
