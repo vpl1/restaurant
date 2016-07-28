@@ -1,11 +1,12 @@
 <?php
-
+App::import('Model','FoodReview');
 class Food extends AppModel{
     var $name = "Food";
     var $useTable = "c_food";
 
     // Start vpluan
     public function getFoodFavorites($userId, $restaurantId){
+         
         $data = $this->find('all', array(
         'joins' => array(
             array(
@@ -33,7 +34,20 @@ class Food extends AppModel{
 
         'conditions' => array('user.id'=>$userId,'b_restaurant.id'=>$restaurantId)
         )); 
-        return $data;
+        foreach ($data as $key => $value) {
+                       $f = new FoodReview();
+                        $listFoods[] = array(
+                            'id'=> $value['Food']['id'],
+                            'imageUrl' => $value['Food']['image_url'],
+                            'rateString' => $f->getRateString($value['Food']['id']),
+                            'name'=> $value['Food']['name'],
+                            'price' => $value['Food']['price'],
+                            'sale' => $value['Food']['sale'],
+                            'discount' => $value['Food']['discount'],
+                            'type' => $value['Food']['type']
+                        );
+                    }
+        return $listFoods;
     }
     // End VpLuan
 }

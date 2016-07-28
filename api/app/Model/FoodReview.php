@@ -7,24 +7,12 @@ class FoodReview extends AppModel{
     // Start vpLuan
     public function getRateString($foodId)
     {
-        $queryRateBy = $this->find('all', array('fields'=> array('(avg(FoodReview.price)) as rateByPrice','(avg(FoodReview.quality)) as rateByQuality','(avg(FoodReview.decoration)) as rateByDecoration'),
-            'conditions'=>array('FoodReview.food_id'=> $foodId)
-        ));
-        $ratestring = array();
-        $ratestring[0] = $queryRateBy[0][0]["rateByPrice"];
-        $ratestring[1] = $queryRateBy[0][0]["rateByQuality"];
-        $ratestring[2] = $queryRateBy[0][0]["rateByDecoration"];
-        
-        //pr($ratestring); exit;
-        $iCount = 0;
-        $fSum = 0;
-        for ($i=0; $i < 3 ; $i++) { 
-            if($ratestring[$i] != null){
-                $iCount++;
-                $fSum += $ratestring[$i];
-            }
-        }
-        return round($fSum/$iCount,1);
+        $query = "select avg(cprice) as rateString from( 
+            select price as cprice from b_food_review where price is not null and food_id= ".$foodId." union all 
+            select quality as cprice from b_food_review where  quality is not null and food_id= ".$foodId." union all 
+            select decoration as cprice from b_food_review where decoration is not null and food_id= ".$foodId."
+        ) AS T";
+        return $this->query($query)[0][0]['rateString'];
     }
     // End vpLuan
 }

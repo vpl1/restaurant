@@ -14,55 +14,50 @@ class RequestsController extends AppController {
 	    *	Useful: Import Model
 	    */
 	    public function beforeFilter(){
-	    	$this->LoadModel("User");
-	        $this->LoadModel("Restaurant");
+	        $this->LoadModel("RestaurantInfo");
 	        $this->LoadModel("Food");
 	        $this->LoadModel("FoodReview");
+	        $this->LoadModel("FeedBack");
+	        $this->LoadModel("Restaurant");
 	    }
-
 	    // Start vpLuan
-	    public function index(){
-
-	    }
-	    public function getListFavorites(){
-	    	$restaurantId = $this->request->query["restaurantId"];
-			$userId = $this->request->query["userId"];
-			//$restaurantId = 1;
-			//$userId = 1;
- 			if(!empty(trim(((string)$restaurantId))) && !empty(trim((string)$userId))){
-				$queryResult = $this->Food->getFoodFavorites($userId,$restaurantId);
-				//pr($queryResult); exit();
-				if($queryResult != null){
-					foreach ($queryResult as $key => $value) {
-						$listFoods[] = array(
-							'id'=> $value['Food']['id'],
-						    'imageUrl' => $value['Food']['image_url'],
-						    'rateString' => $this->FoodReview->getRateString($value['Food']['id']),
-						    'name'=> $value['Food']['name'],
-						    'price' => $value['Food']['price'],
-						    'sale' => $value['Food']['sale'],
-						    'discount' => $value['Food']['discount'],
-						    'type' => $value['Food']['type']
-						);
-					}
-					$result = array("error"=>array('code'=>0,'message'=>'Connect successfully'), "listFoods"=>$listFoods);
-                	echo json_encode($result);
-				}
-				else{
-					$result = array("error"=>array('code'=>0,'message'=>'Connect successfully'), "listFoods"=>null);
-            		echo json_encode($result);
-				}
-			}
-			else{
-				$result = array("error"=>array('code'=>404,'message'=>'Connect failed'), "listFoods"=>null);
-            	echo json_encode($result); 
-			}
-	    }
-
-	    public function getDeliveryProcess($restaurantId)
+	    public function getDeliveryProcess()
 	    {
-	    	
+	    	$restaurantId = $this->request->query["restaurantId"];
+	    	if (!empty(trim((string)$restaurantId))  && $this->Restaurant->read(null,$restaurantId) != null){
+	            $queryResult = $this->RestaurantInfo->getDelivery($restaurantId);
+	            if ($queryResult !=null){
+	                $result = array("error"=>array('code'=>0,'message'=>'Connect successfully'),"contents"=>$queryResult);
+	                echo json_encode($result);
+	            }else{
+	            	$result = array("error"=>array('code'=>0,'message'=>'Connect failed'),"contents"=>null);
+	            	echo json_encode($result);
+	            }
+	        }else{
+	            $result = array("error"=>array('code'=>404,'message'=>'Connect failed'), "content"=>null);
+	            echo json_encode($result); 
+	        }
+	        die;
 	    }
+
+	   	public function postFeedback(){
+        	$repuestData = (array)$this->request->input('json_decode');
+            $feedbackData = (array)$repuestData['feedback'];        	
+           	$data = array(
+           		'user_id' => $feedbackData['userId'],
+           		'restaurant_id' => $feedbackData['restaurantId'],
+           		'email' => $feedbackData['email'],
+           		'first_name' => $feedbackData['firstmame'],
+           		'last_name' => $feedbackData['lastname'],
+           		'phone' => $feedbackData['phone'],
+           		'content' => $feedbackData['content'],
+           	);
+           	$resultquery = $this->FeedBack->saveFeeBack($data);   
+           	if($resultquery != null){           		
+	        	echo json_encode($resultquery);
+           	}
+           	die;        	        
+        }
 	    //End vpLuan
 	}
 ?>
