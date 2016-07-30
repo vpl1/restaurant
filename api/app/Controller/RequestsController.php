@@ -23,7 +23,7 @@ class RequestsController extends AppController {
 	    }
 	    // Start vpLuan
 	    /**
-	    * getDeliveryProcess function
+	    * getDeliveryProcess the get function
 	    * @return json String json success or failed
 	    */
 	    public function getDeliveryProcess()
@@ -35,7 +35,7 @@ class RequestsController extends AppController {
 	                $result = array("error"=>array('code'=>0,'message'=>'Connect successfully'),"contents"=>$queryResult);
 	                echo json_encode($result);
 	            }else{
-	            	$result = array("error"=>array('code'=>0,'message'=>'Connect failed'),"contents"=>null);
+	            	$result = array("error"=>array('code'=>404,'message'=>'Connect failed'),"contents"=>null);
 	            	echo json_encode($result);
 	            }
 	        }else{
@@ -45,8 +45,8 @@ class RequestsController extends AppController {
 	        die;
 	    }
 	    /**
-	    * postFeedback function
-	    * @return json String success or failed
+	    * postFeedback the post function
+	    * @return json String json success or failed
 	    */
 	   	public function postFeedback(){
         	$repuestData = (array)$this->request->input('json_decode');
@@ -61,8 +61,8 @@ class RequestsController extends AppController {
            	empty(trim($feedbackData['lastName'])) ? $status = false : $last_name = $feedbackData['lastName'];
            	empty(trim($feedbackData['phone'])) ? $status = false : $phone = $feedbackData['phone'];
            	empty(trim($feedbackData['content'])) ? $status = false : $content = $feedbackData['content'];
-     
-           	if(count($status) && $this->User->find('all',array('conditions'=>array('User.id'=>$user_id, 'User.restaurant_id' => $restaurant_id)))){
+           	
+           	if(count($status) && $this->User->isExitsUserIntoRestaurant($user_id,$restaurant_id)){
            		$data = array(
            		'user_id' => $user_id,
            		'restaurant_id' => $restaurant_id,
@@ -77,12 +77,12 @@ class RequestsController extends AppController {
 					echo json_encode($result);
 				}
 				else{
-					$result = array("error"=>array('code'=>0,'message'=>'Connect failed'));
+					$result = array("error"=>array('code'=>404,'message'=>'Connect failed'));
 					echo json_encode($result);
 	           	}
 	        }
            	else{
-           		$result = array("error"=>array('code'=>0,'message'=>'Connect failed'));
+           		$result = array("error"=>array('code'=>404,'message'=>'Connect failed'));
 				echo json_encode($result);
            	}
            	die;        	        

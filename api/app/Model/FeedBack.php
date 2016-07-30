@@ -8,8 +8,9 @@ class FeedBack extends AppModel{
 	public function saveFeeBack($fbData=null){
 		if($fbData != null){
 			$this->create();
-			$this->save($fbData)["FeedBack"];
-			return true;	
+			if($this->save($fbData)["FeedBack"]){
+				return true;	
+			}
 		}
 		return null;
 	}
