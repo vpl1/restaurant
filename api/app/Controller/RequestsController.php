@@ -22,6 +22,10 @@ class RequestsController extends AppController {
 	        $this->LoadModel("User");
 	    }
 	    // Start vpLuan
+	    /**
+	    * getDeliveryProcess function
+	    * @return json String json success or failed
+	    */
 	    public function getDeliveryProcess()
 	    {
 	    	$restaurantId = $this->request->query["restaurantId"];
@@ -40,21 +44,25 @@ class RequestsController extends AppController {
 	        }
 	        die;
 	    }
-
+	    /**
+	    * postFeedback function
+	    * @return json String success or failed
+	    */
 	   	public function postFeedback(){
         	$repuestData = (array)$this->request->input('json_decode');
             $feedbackData = (array)$repuestData['feedback']; 
+
             $user_id = null; $restaurant_id = null; $email = null; $first_name = null; $last_name = null; $phone = null; $content = null;
             $status = true;
-           	empty(trim((string)$feedbackData['userId'])) ? $status = false : $user_id = $feedbackData['userId'];
-           	empty(trim((string)$feedbackData['restaurantId'])) ? $status = false : $restaurant_id = $feedbackData['restaurantId'];
-           	empty(trim((string)$feedbackData['email'])) ? $status = false : $email = $feedbackData['email'];
-           	empty(trim((string)$feedbackData['firstName'])) ? $status = false : $first_name = $feedbackData['firstName'];
-           	empty(trim((string)$feedbackData['lastName'])) ? $status = false : $last_name = $feedbackData['lastName'];
-           	empty(trim((string)$feedbackData['phone'])) ? $status = false : $phone = $feedbackData['phone'];
-           	empty(trim((string)$feedbackData['content'])) ? $status = false : $content = $feedbackData['content'];
+           	empty(trim($feedbackData['userId'])) ? $status = false : $user_id = $feedbackData['userId'];
+           	empty(trim($feedbackData['restaurantId'])) ? $status = false : $restaurant_id = $feedbackData['restaurantId'];
+           	empty(trim($feedbackData['email'])) ? $status = false : $email = $feedbackData['email'];
+           	empty(trim($feedbackData['firstName'])) ? $status = false : $first_name = $feedbackData['firstName'];
+           	empty(trim($feedbackData['lastName'])) ? $status = false : $last_name = $feedbackData['lastName'];
+           	empty(trim($feedbackData['phone'])) ? $status = false : $phone = $feedbackData['phone'];
+           	empty(trim($feedbackData['content'])) ? $status = false : $content = $feedbackData['content'];
      
-           	if(count($status) && $this->Restaurant->read(null,$restaurant_id) != null && $this->User->read(null,$user_id) != null){
+           	if(count($status) && $this->User->find('all',array('conditions'=>array('User.id'=>$user_id, 'User.restaurant_id' => $restaurant_id)))){
            		$data = array(
            		'user_id' => $user_id,
            		'restaurant_id' => $restaurant_id,
@@ -64,11 +72,15 @@ class RequestsController extends AppController {
            		'phone' => $phone,
            		'content' => $content,
 	           	);
-	           	$resultquery = $this->FeedBack->saveFeeBack($data);   
-	           	if($resultquery != null){           		
-		        	echo json_encode($resultquery);
+	           	if($this->FeedBack->saveFeeBack($data)){
+					$result = array("error"=>array('code'=>0,'message'=>'Connect success'));
+					echo json_encode($result);
+				}
+				else{
+					$result = array("error"=>array('code'=>0,'message'=>'Connect failed'));
+					echo json_encode($result);
 	           	}
-           	}
+	        }
            	else{
            		$result = array("error"=>array('code'=>0,'message'=>'Connect failed'));
 				echo json_encode($result);

@@ -10,8 +10,10 @@
 	        $this->LoadModel("Restaurant");
 	    }
 		public function getListFavorites(){
-		    	$restaurantId = $this->request->query["restaurantId"];
-				$userId = $this->request->query["userId"];
+		    	//$restaurantId = $this->request->query["restaurantId"];
+				//$userId = $this->request->query["userId"];
+				$restaurantId = 1;
+				$userId = 2;
 				if(!empty(trim(((string)$restaurantId))) && !empty(trim((string)$userId)) 
 					&& $this->Restaurant->read(null,$restaurantId)
 					&& $this->User->read(null,$userId) 

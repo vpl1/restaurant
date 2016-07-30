@@ -26,7 +26,7 @@ class Food extends AppModel{
                 'table' => 'b_restaurant',         
                 'type' => 'inner',
                 'foreignKey' => false,
-                'conditions'=> array('b_restaurant.id = user.id')
+                'conditions'=> array('b_restaurant.id = user.restaurant_id')
             )
         ),
 
@@ -39,7 +39,7 @@ class Food extends AppModel{
                         $listFoods[] = array(
                             'id'=> $value['Food']['id'],
                             'imageUrl' => $value['Food']['image_url'],
-                            'rateString' => $f->getRateString($value['Food']['id']),
+                            'rateString' => round($f->getRateString($value['Food']['id']),1),
                             'name'=> $value['Food']['name'],
                             'price' => $value['Food']['price'],
                             'sale' => $value['Food']['sale'],
